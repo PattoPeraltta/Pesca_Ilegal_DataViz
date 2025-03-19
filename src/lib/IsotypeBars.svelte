@@ -12,7 +12,7 @@
       {#each Array(n) as m}
         <img
           style="height: 50px; padding: 2px"
-          src="./images/person.png"
+          src="./images/Fish.svg"
           alt="person"
         />
       {/each}

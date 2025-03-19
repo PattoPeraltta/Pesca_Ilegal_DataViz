@@ -6,7 +6,7 @@
   import Donas from "./lib/Donas.svelte"
   import IsotypeBars from "./lib/IsotypeBars.svelte"
 
-  let numbers = [5, 18, 29, 75, 100]
+  let numbers = [24,33,43,54,63,71,77,87,92,98]
 
   /* 
     d3.scaleLinear() retorna una función,
@@ -21,37 +21,16 @@
 </script>
 
 <main class="container">
-  <!-- Isotipos (manual) -->
-  <h3 class="headline">Magnitudes. Canal: longitud</h3>
-  <div class="iso__container">
-    <img style="height: 75px" src="./images/person-iso.svg" alt="person" />
-    <img style="height: 150px" src="./images/person-iso.svg" alt="person" />
-  </div>
-  <br />
-  <hr />
 
-  <!-- Isotipos (array) -->
-  <h3 class="headline">Magnitudes. Canal: longitud</h3>
-  <div class="iso__container-big">
-    {#each numbers as n}
-      <img
-        style="height: {altura(n)}px; padding: 10px"
-        src="./images/person.png"
-        alt="person"
-      />
-    {/each}
-  </div>
+    <!-- Barras Isotipos  -->
+    <IsotypeBars
+    numbers={numbers}
+    title="Magnitudes. Canal: longitud. Tipo: gráfico Isotype"
+  />
   <hr />
 
   <!-- Cafés -->
   <CoffeColumns numbers={numbers} title="Canal: altura. Tipo: columnas" />
-  <hr />
-
-  <!-- Barras Isotipos  -->
-  <IsotypeBars
-    numbers={numbers}
-    title="Magnitudes. Canal: longitud. Tipo: gráfico Isotype"
-  />
   <hr />
 
   <!-- Waffles -->
