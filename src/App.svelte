@@ -21,9 +21,8 @@
 </script>
 
 <main class="container">
-
-    <!-- Barras Isotipos  -->
-    <IsotypeBars
+  <!-- Barras Isotipos  -->
+  <IsotypeBars
     numbers={numbers}
     title="Magnitudes. Canal: longitud. Tipo: gráfico Isotype"
   />
@@ -31,24 +30,6 @@
 
   <!-- Cafés -->
   <CoffeColumns numbers={numbers} title="Canal: altura. Tipo: columnas" />
-  <hr />
-
-  <!-- Waffles -->
-  <Waffles
-    numbers={numbers}
-    title="Magnitudes. Canal: área. Tipo: gráfico waffle"
-  />
-  <hr />
-
-  <!-- Donas -->
-  <Donas
-    numbers={numbers}
-    title="Magnitudes. Canal: ángulo. Tipo: gráfico donas"
-  />
-  <hr />
-
-  <!-- Contornos irregulares -->
-  <IrregularPath title="Canal: longitud (path irregular)" numbers={numbers} />
   <hr />
 </main>
 
@@ -61,14 +42,14 @@
 
   .iso__container {
     display: flex;
-    width: 300px;
+    width: 350px;
     align-items: end;
     justify-content: space-around;
   }
   .iso__container-big {
     display: flex;
     flex-direction: row-reverse;
-    width: 600px;
+    width: 650px;
     align-items: end;
     justify-content: space-around;
   }

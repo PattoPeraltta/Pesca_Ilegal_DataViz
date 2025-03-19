@@ -9,14 +9,16 @@
 <div class="iso__container-iso">
   {#each numbersDivided5 as n, index}
     <div class="row">
-      {#each Array(n) as m}
-        <img
-          style="height: 50px; padding: 2px"
-          src="./images/Fish.svg"
-          alt="person"
-        />
-      {/each}
-      <p>{numbers[index]}</p>
+      <p class="number">{numbers[index]}</p>
+      <div class="images-container">
+        {#each Array(n) as m}
+          <img
+            style="height: 50px; padding: 0.5px"
+            src="./images/Fish.svg"
+            alt="person"
+          />
+        {/each}
+      </div>
     </div>
   {/each}
 </div>
@@ -28,5 +30,20 @@
     max-width: 1000px;
     align-items: start;
     justify-content: space-around;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .number {
+    min-width: 1rem;
+    margin: 0;
+    font-weight: bold;
+    margin-top:1rem;
+  }
+  .images-container {
+    display: flex;
+    flex-wrap: wrap;
   }
 </style>
