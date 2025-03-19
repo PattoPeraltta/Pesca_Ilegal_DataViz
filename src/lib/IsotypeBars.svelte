@@ -41,6 +41,7 @@
     margin: 0;
     font-weight: bold;
     margin-top:1rem;
+    color:white;
   }
   .images-container {
     display: flex;

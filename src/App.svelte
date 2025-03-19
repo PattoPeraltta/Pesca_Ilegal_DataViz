@@ -1,18 +1,8 @@
 <script>
   import * as d3 from "d3"
-  import Waffles from "./lib/Waffles.svelte"
-  import IrregularPath from "./lib/IrregularPath.svelte"
-  import CoffeColumns from "./lib/CoffeColumns.svelte"
-  import Donas from "./lib/Donas.svelte"
   import IsotypeBars from "./lib/IsotypeBars.svelte"
 
   let numbers = [24,33,43,54,63,71,77,87,92,98]
-
-  /* 
-    d3.scaleLinear() retorna una función,
-    la guardamos en altura
-    para las alturas de los isotipos
-  */
 
   let altura = d3
     .scaleLinear()
@@ -26,18 +16,16 @@
     numbers={numbers}
     title="Magnitudes. Canal: longitud. Tipo: gráfico Isotype"
   />
-  <hr />
 
-  <!-- Cafés -->
-  <CoffeColumns numbers={numbers} title="Canal: altura. Tipo: columnas" />
-  <hr />
 </main>
 
 <style>
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
+  :global(body), :global(html) {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #1a6ed5, #0c3b7c, #001e4d);
   }
 
   .iso__container {
@@ -53,7 +41,11 @@
     align-items: end;
     justify-content: space-around;
   }
+  
   :global(.headline) {
     margin: 50px 0;
+    color: white;
   }
+
+
 </style>
