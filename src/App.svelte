@@ -3,6 +3,8 @@
   import IsotypeBars from "./lib/IsotypeBars.svelte"
 
   let numbers = [24,33,43,54,63,71,77,87,92,98]
+  let numbers2 = [98, 92, 87, 77, 71, 63, 54, 43, 33, 24]
+
 
   let altura = d3
     .scaleLinear()
@@ -36,9 +38,17 @@
     numbers={numbers}
     title="Representación magnitudes: Escuela de peces"
   />
-
   <!-- Tiburones  -->
-
+  <h3 class="headline">Magnitudes. Canal: longitud</h3>
+  <div class="iso__container-big">
+    {#each numbers2 as n}
+      <img
+        style="height: {altura(n)}px; padding: 4px;"
+        src="./images/Shark.svg"
+        alt="person"
+      />
+    {/each}
+  </div>
 </main>
 
 <style>
@@ -91,13 +101,12 @@
   :global(body), :global(html) {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
     background: linear-gradient(to bottom, #1a6ed5, #0c3b7c, #001e4d);
   }
     
   :global(.headline) {
-    margin: 50px 0;
+    margin:30px;
     color: white;
     font-size: 1.5rem;
   }
