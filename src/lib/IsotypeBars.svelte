@@ -1,20 +1,19 @@
 <script>
-  import * as d3 from "d3";
   export let title = "";
   export let numbers = [];
   
-  // Convert each number to a count of fish (one fish per 5 units)
-  let numbersDivided5 = numbers.map(n => Math.floor(n / 5));
+  // Each fish represents an increment of 6; round to the nearest integer
+  let fishCount = numbers.map(n => Math.round(n / 6));
 </script>
 
 <div class="isotype-bars-container">
   <h3 class="headline section-title">{title}</h3>
   <div class="iso__container-iso">
-    {#each numbersDivided5 as n, index}
+    {#each fishCount as count, index}
       <div class="row">
         <p class="number">{numbers[index]}</p>
         <div class="images-container">
-          {#each Array(n) as _, i}
+          {#each Array(count) as _, i}
             <img
               style="height: 50px; padding: 0.5px"
               src="./images/Fish.svg"
@@ -35,7 +34,7 @@
   .iso__container-iso {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 1rem;
   }
   .row {
@@ -44,17 +43,17 @@
     gap: 1rem;
   }
   .number {
-    min-width: 1rem;
     margin: 0;
     font-weight: bold;
-    margin-top: 1rem;
     color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
   }
   .images-container {
     display: flex;
     flex-wrap: wrap;
   }
-  /* Hover animation for fish in the second representation */
   .images-container img {
     transition: transform 0.2s ease;
   }

@@ -13,57 +13,66 @@
 </script>
 
 <main class="container">
-  <header class="story-header">
-    <h1>La Odisea Marina: Un Viaje a Través de las Magnitudes</h1>
-    <p>
-      Sumérgete en un océano de datos, donde cada imagen cuenta una historia. Descubre cómo las magnitudes cobran vida, desde la elegancia de los tiburones hasta la energía vibrante de un banco de peces.
-    </p>
-  </header>
+  <div class="background-container">
+    <header class="story-header">
+      <h1>La Odisea Marina: Un Viaje a Través de las Magnitudes</h1>
+      <p>
+        Sumérgete en un océano de datos, donde cada imagen cuenta una historia. Descubre cómo las magnitudes cobran vida, desde la elegancia de los tiburones hasta la energía vibrante de un banco de peces.
+      </p>
+    </header>
 
-  <!-- Primera representación: Encuentro Inicial -->
-  <section class="initial-representation">
-    <h2 class="headline section-title">Encuentro Inicial: La Dualidad del Océano</h2>
-    <div class="images-container">
-      <div class="image-column">
-        <div class="image-wrapper">
-          <img src="./images/Shark.svg" alt="Tiburón" class="shark-image" />
+    <!-- Primera representación: Encuentro Inicial -->
+    <section class="initial-representation">
+      <h2 class="headline section-title">Encuentro Inicial: La Dualidad del Océano</h2>
+      <div class="images-container">
+        <div class="image-column">
+          <div class="image-wrapper">
+            <img src="./images/Shark.svg" alt="Tiburón" class="shark-image" />
+          </div>
+          <p class="magnitude">87</p>
         </div>
-        <p class="magnitude">87</p>
-      </div>
-      
-      <div class="image-column">
-        <div class="image-wrapper">
-          <img src="./images/Fish.svg" alt="Pez" class="fish-image" />
+        
+        <div class="image-column">
+          <div class="image-wrapper">
+            <img src="./images/Fish.svg" alt="Pez" class="fish-image" />
+          </div>
+          <p class="magnitude">24</p>
         </div>
-        <p class="magnitude">24</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Segunda representación: Escuela de Peces -->
-  <section class="isotype-bars">
-    <IsotypeBars numbers={numbers} title="Escuela de Peces: La Danza de los Números" />
-  </section>
+    <!-- Segunda representación: Escuela de Peces -->
+    <section class="isotype-bars">
+      <IsotypeBars numbers={numbers} title="Escuela de Peces: La Danza de los Números" />
+    </section>
 
-  <!-- Tercera representación: Canal de la Longitud -->
-  <section class="length-channel">
-    <h2 class="headline section-title">El Canal de la Longitud: La Escala de los Tiburones</h2>
-    <div class="iso__container-big">
-      {#each numbers2 as n}
-        <img
-          style="height: {altura(n)}px; padding: 4px;"
-          src="./images/Shark.svg"
-          alt="Tiburón"
-        />
-      {/each}
-    </div>
-  </section>
+    <!-- Tercera representación: Canal de la Longitud -->
+    <section class="length-channel">
+      <h2 class="headline section-title">El Canal de la Longitud: La Escala de los Tiburones</h2>
+      <div class="iso__container-big">
+        {#each numbers2 as n}
+          <img
+            style="height: {altura(n)}px; padding: 4px;"
+            src="./images/Shark.svg"
+            alt="Tiburón"
+          />
+        {/each}
+      </div>
+    </section>
+  </div>
 </main>
 
 <style>
   .container {
     padding: 1rem;
     text-align: center;
+  }
+  .background-container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 0 auto;
+    max-width: 1200px;
   }
   .story-header {
     margin: 2rem auto;
@@ -84,7 +93,8 @@
   }
   
   .initial-representation,
-  .isotype-bars{
+  .isotype-bars,
+  .length-channel {
     border: 4px solid rgba(173, 216, 230, 0.7);
     border-radius: 8px;
     padding: 1rem;
@@ -110,7 +120,6 @@
     align-items: center;
     height: 200px;
   }
-
   .initial-representation .image-wrapper img {
     transition: transform 0.3s ease;
   }
@@ -130,7 +139,6 @@
     color: rgb(157, 198, 247);
     margin-top: 1rem;
   }
-
   .iso__container-big {
     display: flex;
     justify-content: center;
