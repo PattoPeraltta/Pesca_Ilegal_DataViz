@@ -52,7 +52,7 @@
       <div class="iso__container-big">
         {#each numbers2 as n}
           <img
-            style="height: {altura(n)}px; padding: 4px;"
+            style="height: {altura(n)/1.5}px; padding: 4px;"
             src="./images/Shark.svg"
             alt="Tiburón"
           />
