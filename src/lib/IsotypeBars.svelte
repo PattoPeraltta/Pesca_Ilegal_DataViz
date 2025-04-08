@@ -2,7 +2,7 @@
   export let title = "";
   export let numbers = [];
   
-  // Each fish represents an increment of 6; round to the nearest integer
+  // Cada pezcado en la escuela, representa un incremento en 6 en el numero de magnitud redondeado al multiplo de 6 mas cercano
   let fishCount = numbers.map(n => Math.round(n / 6));
 </script>
 
@@ -53,12 +53,6 @@
   .images-container {
     display: flex;
     flex-wrap: wrap;
-  }
-  .images-container img {
-    transition: transform 0.2s ease;
-  }
-  .images-container img:hover {
-    transform: scale(1.15);
   }
   .section-title {
     margin-bottom: 1rem;

@@ -4,21 +4,14 @@
 
   let numbers = [24, 33, 43, 54, 63, 71, 77, 87, 92, 98];
   let numbers2 = [98, 92, 87, 77, 71, 63, 54, 43, 33, 24];
-
-  // Scale to map numeric magnitudes to image heights
-  let altura = d3
-    .scaleLinear()
-    .domain([5, 100])
-    .range([15, 225]);
+  let altura = d3.scaleLinear().domain([5, 100]).range([15, 225]);
 </script>
 
 <main class="container">
   <div class="background-container">
     <header class="story-header">
       <h1>La Odisea Marina: Un Viaje a Través de las Magnitudes</h1>
-      <p>
-        Sumérgete en un océano de datos, donde cada imagen cuenta una historia. Descubre cómo las magnitudes cobran vida, desde la elegancia de los tiburones hasta la energía vibrante de un banco de peces.
-      </p>
+      <p>Sumérgete en un océano de datos, donde cada imagen cuenta una historia. Descubre cómo las magnitudes cobran vida, desde la elegancia de los tiburones hasta la energía vibrante de un banco de peces.</p>
     </header>
 
     <!-- Primera representación: Encuentro Inicial -->
@@ -31,7 +24,6 @@
           </div>
           <p class="magnitude">87</p>
         </div>
-        
         <div class="image-column">
           <div class="image-wrapper">
             <img src="./images/Fish.svg" alt="Pez" class="fish-image" />
@@ -51,11 +43,7 @@
       <h2 class="headline section-title">El Canal de la Longitud: La Escala de los Tiburones</h2>
       <div class="iso__container-big">
         {#each numbers2 as n}
-          <img
-            style="height: {altura(n)/1.5}px; padding: 4px;"
-            src="./images/Shark.svg"
-            alt="Tiburón"
-          />
+          <img style="height: {altura(n)/1.5}px; padding: 4px;" src="./images/Shark.svg" alt="Tiburón" />
         {/each}
       </div>
     </section>
@@ -63,10 +51,7 @@
 </main>
 
 <style>
-  .container {
-    padding: 1rem;
-    text-align: center;
-  }
+  .container { padding: 1rem; text-align: center; }
   .background-container {
     background: rgba(255, 255, 255, 0.2);
     padding: 2rem;
@@ -78,30 +63,16 @@
     margin: 2rem auto;
     max-width: 800px;
   }
-  .story-header h1 {
-    color: #ffffff;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-  .story-header p {
-    color: #cce5ff;
-    font-size: 1.2rem;
-    margin: 0 auto 2rem;
-  }
-  .section-title {
-    margin-bottom: 1rem;
-  }
-  
-  .initial-representation,
-  .isotype-bars,
-  .length-channel {
+  .story-header h1 { color: #ffffff; font-size: 2rem; margin-bottom: 0.5rem; }
+  .story-header p { color: #cce5ff; font-size: 1.2rem; margin: 0 auto 2rem; }
+  .section-title { margin-bottom: 1rem; }
+  .initial-representation, .isotype-bars, .length-channel {
     border: 4px solid rgba(173, 216, 230, 0.7);
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 2rem;
   }
-  
-  .initial-representation .images-container {
+  .images-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -120,20 +91,8 @@
     align-items: center;
     height: 200px;
   }
-  .initial-representation .image-wrapper img {
-    transition: transform 0.3s ease;
-  }
-  .initial-representation .image-wrapper img:hover {
-    transform: scale(1.1);
-  }
-  .shark-image {
-    width: 300px;
-    height: auto;
-  }
-  .fish-image {
-    width: 100px;
-    height: auto;
-  }
+  .shark-image { width: 300px; height: auto; }
+  .fish-image { width: 100px; height: auto; }
   .magnitude {
     font-size: 2.5rem;
     color: rgb(157, 198, 247);
@@ -148,12 +107,6 @@
     gap: 10px;
     padding-top: 1rem;
   }
-  .iso__container-big img {
-    transition: transform 0.3s ease;
-  }
-  .iso__container-big img:hover {
-    transform: scale(1.05);
-  }
   :global(body), :global(html) {
     margin: 0;
     padding: 0;
@@ -167,24 +120,12 @@
     font-size: 1.5rem;
   }
   @media (max-width: 768px) {
-    .images-container {
-      gap: 2rem;
-    }
-    .image-column {
-      width: 200px;
-    }
-    .shark-image {
-      width: 200px;
-    }
-    .fish-image {
-      width: 70px;
-    }
-    .story-header h1 {
-      font-size: 1.8rem;
-    }
-    .magnitude {
-      font-size: 2rem;
-    }
+    .images-container { gap: 2rem; }
+    .image-column { width: 200px; }
+    .shark-image { width: 200px; }
+    .fish-image { width: 70px; }
+    .story-header h1 { font-size: 1.8rem; }
+    .magnitude { font-size: 2rem; }
     .iso__container-big {
       width: 100%;
       flex-direction: column;
