@@ -37,7 +37,7 @@
     <header class="story-header">
       <h1>La Odisea Marina: Un Viaje a Través de las Magnitudes</h1>
       <p>
-        Primero, para el entregable 3a, se representaron las magnituded 24 y 95
+        Primero, para el entregable 2, se representaron las magnituded 24 y 95
         como un inofensivo pescado (24), y un tiburon temeroso (95).
       </p>
     </header>
@@ -63,7 +63,7 @@
 
     <header class="story-header">
       <p>
-        Para comenzar con la parte 3b del entregable, decidi optar por un uso con
+        Para comenzar con la parte 3a del entregable, decidi optar por un uso con
         fines visuales para el conjunto de numeros dado, donde dado dicho
         conjunto se obtiene una visualización por cantidad (escuela de peces) y
         otra por tamaño (Exhibición de tiburones):
@@ -90,7 +90,7 @@
     </section>
 
     <header class="story-header">
-      <h1>Segunda idea: Parte 2b</h1>
+      <h1>Segunda idea: Parte 3b</h1>
       <p>
         En las siguientes visualizaciones, el vector de entrada se interpreta
         comom un conjunto de años del siglo XX. Primero, se muestra el
