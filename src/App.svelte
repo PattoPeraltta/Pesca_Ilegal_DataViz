@@ -2,16 +2,22 @@
   import * as d3 from "d3";
   import IsotypeBars from "./lib/IsotypeBars.svelte";
 
-  // para que las representaciones de la segunda parte sean coherentes,
-  // se necesitara ingresar un vector de numeros entre 0 y 100. :<)
 
-  let numbers = [24, 33, 43, 54, 63, 71, 77, 87, 92, 98];
-  let numbers2 = [98, 92, 87, 77, 71, 63, 54, 43, 33, 24];
+
+  let años = [2015,2016,2017,2018,2019, 2020, 2021, 2022,2023, 2024]
+  let serieA = [24, 33, 43, 54, 63, 71, 77, 87, 92, 98];
+  let serieB = [23, 35, 45, 56, 50, 43, 38, 32, 28, 25];
   let altura = d3.scaleLinear().domain([5, 100]).range([15, 225]);
+  let transformedValues = serieA.map(n => Math.round((n - 20) / 10) * 10);
+  let presupuestoMaritimo = serieA.map(n => Math.floor(95 - n / 2.2));
+
+  // AGREGar tipografias piola
+  // titulo piola con gpt maybe
+  // media pila pato
 
 
   // se ordena el vector en forma ascendente para formar los años
-  let sortedNumbers = [...numbers].sort((a, b) => a - b);
+  let sortedNumbers = [...serieA].sort((a, b) => a - b);
   let fishMin = Math.min(...sortedNumbers);
   let fishMax = Math.max(...sortedNumbers);
 
@@ -35,146 +41,132 @@
 <main class="container">
   <div class="background-container">
     <header class="story-header">
-      <h1>La Odisea Marina: Un Viaje a Través de las Magnitudes</h1>
+      <h1>La pesca ilegal: Un problema en crecimiento</h1>
       <p>
-        Primero, para el entregable 2, se representaron las magnituded 24 y 95
-        como un inofensivo pescado (24), y un tiburon temeroso (95).
+        La pesca ilegal, no declarada y no reglamentada (INDNR) representa una amenaza creciente para los ecosistemas marinos. Cada año, millones de toneladas de peces son extraídas sin control, lo que deteriora la biodiversidad, debilita la seguridad alimentaria y perjudica gravemente a las comunidades costeras que dependen del mar para subsistir.
+      </p>
+      <p>
+        A través de una serie de visualizaciones, este proyecto busca evidenciar la magnitud de este conflicto global y poner en perspectiva sus consecuencias. El objetivo es generar conciencia sobre la urgencia de implementar medidas eficaces para frenar esta práctica destructiva.
       </p>
     </header>
 
-    <!-- Primera representación: Encuentro Inicial -->
-    <section class="initial-representation">
-      <h2 class="headline section-title">Encuentro Inicial: La Dualidad del Océano</h2>
-      <div class="images-container">
-        <div class="image-column">
-          <div class="image-wrapper">
-            <img src="./images/Shark.svg" alt="Tiburón" class="shark-image" />
-          </div>
-          <p class="magnitude">87</p>
-        </div>
-        <div class="image-column">
-          <div class="image-wrapper">
-            <img src="./images/Fish.svg" alt="Pez" class="fish-image" />
-          </div>
-          <p class="magnitude">24</p>
-        </div>
-      </div>
-    </section>
-
-    <header class="story-header">
-      <p>
-        Para comenzar con la parte 3a del entregable, decidi optar por un uso con
-        fines visuales para el conjunto de numeros dado, donde dado dicho
-        conjunto se obtiene una visualización por cantidad (escuela de peces) y
-        otra por tamaño (Exhibición de tiburones):
-      </p>
-    </header>
 
     <!-- Segunda representación: Escuela de Peces -->
-    <section class="isotype-bars">
-      <IsotypeBars numbers={numbers} title="Escuela de Peces" />
+     <h2 class="titulos-graficos">Millones de peces pescados ilegalmente en los ultimos 10 años: </h2>
+    <section class="isotype-bars visual-box" style="margin-bottom: 2cm;">
+      <IsotypeBars numbers={serieA} años={años}/>
     </section>
 
-    <!-- Tercera representación: Canal de la Longitud -->
-    <section class="length-channel">
-      <h2 class="headline section-title">Exhibición de Tiburones</h2>
-      <div class="iso__container-big">
-        {#each numbers2 as n}
-          <img
-            style="height: {altura(n) / 1.5}px; padding: 4px;"
-            src="./images/Shark.svg"
-            alt="Tiburón"
-          />
+    <header class="story-header" style="margin-top: 0cm;">
+      <p> La grafica representa el crecimiento de la cantidad de peces pescados de manera ilicita, donde cada pescado representa un incremento en 7 millones de peces. </p>
+    </header>
+
+    <section style="margin-bottom: 2cm;">
+
+    <header class="story-header">
+      <h1>Conciencia ambiental en comunidades costeras</h1>
+      <p>
+        Durante la última década, los niveles de conciencia ambiental acerca de la pesca ilegal en las comunidades costeras han crecido notablemente. Sin embargo, a pesar de este progreso, todavía queda un largo camino por recorrer para lograr una comprensión profunda y generalizada sobre la importancia de proteger nuestros océanos.
+      </p>
+      <p>
+        Esta visualización muestra cómo fue aumentando ese nivel de conciencia año a año —reflejado en el número de personas que se informan, actúan y defienden prácticas sostenibles— aunque aún estamos lejos de alcanzar el 100%.
+      </p>
+    </header>
+
+    <div class = "visual-box">
+      <div class="legend waffle-legend ">
+        <div class="legend-item">
+          <img src="./images/Fish2.svg" alt="Pez consciente" />
+          <span>1% con conciencia ambiental</span>
+        </div>
+        <div class="legend-item">
+          <img src="./images/Fish.svg" alt="Pez sin conciencia" />
+          <span>1% sin conciencia ambiental</span>
+        </div>
+      </div>
+      <div class="waffle-grid ">
+        {#each transformedValues as value, index}
+          <div class="waffle-year">
+            <p class="waffle-label">{años[index]}</p>
+            <div class="waffle-square">
+              {#each Array(100) as _, i}
+                <img
+                  class="waffle-fish"
+                  src={i < value ? "./images/Fish2.svg" : "./images/Fish.svg"}
+                  alt="Conciencia"
+                />
+              {/each}
+            </div>
+          </div>
         {/each}
       </div>
+    </div>
+
     </section>
-    <hr>
-      <header class="story-header">
-        <h1>Segunda idea: Parte 3b</h1>
-      </header>
-      <p style="color: #cce5ff; font-size: 1.2rem;">
-        En las siguientes visualizaciones, el vector de entrada se interpreta como un conjunto de años del siglo XX, y los datos de cada visualización se generan en función de estos numeros, haciendo que si se ingresase un nuevo vector, el grafico cambiaria acorde a los nuevos valores. Primero, se muestra el crecimiento en pesca ilegal en Americam Latina. En segundo lugar, se expone el decrecimiento de ataques de tiburones a traves de los años.
-      </p>
 
     <!-- CUARTA REPRESENTACIÓN: Gráfico de Barras – Millones de Peces Pescados Ilegalmente -->
-    <section class="illegal-fishing-chart">
-      <h2 class="headline section-title">
-        Millones de Peces Pescados Ilegalmente en America Latina
-      </h2>
-      <div class="bar-chart">
-        {#each sortedNumbers as m}
-          {@const value = m + getRandomInt(-1, 1)}
-          <div class="bar-wrapper">
-            <span class="value-label">{value}</span>
-            <span class="caption">Pescados (MM)</span>
-            <div
-              class="bar-item"
-              style="height: {illegalFishScale(value)}px;"
-            >
-            </div>
-            <span class="year-label">{"19" + m}</span>
-          </div>
-        {/each}
-      </div>
+    <section style="margin-bottom: 1cm; ">
+      <header class = "story-header" style="margin-bottom: 2cm;">
+        <h1 class="section-title">Control Gubernamental</h1>
+        <p class="section-text">
+          La lucha contra la pesca ilegal no puede depender únicamente de la conciencia ciudadana o de iniciativas aisladas. Es fundamental que los gobiernos destinen recursos concretos al control marítimo y fiscalización. Sin inversión pública sostenida, los esfuerzos por proteger nuestros océanos quedan a la deriva.
+        </p>
+      </header>
     </section>
 
-    <!-- QUINTA REPRESENTACIÓN: Gráfico de Barras – Ataques de Tiburones Anuales -->
-    <section class="shark-attacks-chart">
-      <h2 class="headline section-title">Ataques de Tiburones siglo XX</h2>
-      <div class="bar-chart">
-        {#each sortedNumbers as m}
-          <div class="bar-wrapper">
-            <span class="value-label">{(m / 10).toFixed(1)}</span>
-            <span class="caption">Ataques</span>
+        <h2 class="titulos-graficos">
+          Porcentaje del Presupuesto Ambiental (global) destinado al Control Marítimo:
+        </h2>
 
-            <div
-              class="bar-item"
-              style="height: {300 * (1- m / fishMax)}px;"
-            >
+      <section class="visual-box">
+        <div class="bar-chart">
+          {#each presupuestoMaritimo as value, index}
+          <div class="bar-wrapper">
+            <span class="value-label">{value}%</span>
+            <div class="bar-item" style="height: {illegalFishScale(value)}px;"></div>
+            <span class="year-label">{años[index]}</span>
           </div>
-            <span class="year-label">{"19" + m}</span>
-          </div>
-        {/each}
-      </div>
-    </section>
-    <hr>
-      <h1 style="color: white; font-size: 2.5rem;">Pescaderia ilegal alrededor del mundo</h1>
-      <p style="color: #cce5ff; font-size: 1.2rem;">
-        Lastimosamente, la pescaderia ilegal es un problema grave el cual año tras año sigue empeorando. A pesar de los notorios esfuerzos por su prohibición, esta problematica sigue acechando los oceanos. A continuación, se presentan una serie de visualizaciones que ayudan a percibir la magnitud del conflicto. 
+          {/each}
+        </div>
+      </section>
+        
+
+    <section class= "story-header">
+      <h1>
+        Buques Pesqueros Ilegales en Crecimiento
+      </h1>
+      <p>
+        A medida que la pesca ilegal se expande, también lo hace la cantidad de buques no registrados que operan fuera del marco legal. Muchas de estas embarcaciones apagan sus sistemas de rastreo y violan zonas protegidas sin dejar rastro.
       </p>
+    </section>
       
       <section>
-        <div style="margin-top: 2cm;">
-        <h2 style="color: white; font-size: 2rem;">Cantidad de embarcaciones ilegales por país (2024):</h2>
-        <iframe src='https://flo.uri.sh/visualisation/22665714/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/22665714/?utm_source=embed&utm_campaign=visualisation/22665714' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
-        <p style="color: #cce5ff; font-size: 1.2rem;">
-          En el grafico se observan los primeros 10 paises en el ranking de paises con mas embarcaciones pesqueras ilegales.
-        </p>
-        </div>
-        
-        <div style="margin-top: 3cm;">
-        <h1 style="color: white; font-size: 2rem; margin-bottom 1cm;" >El crecimiento de la pescaderia ilegal China a traves de los años:</h1>
+
+        <div style="margin-top: 1.5cm;">
+        <h1 class="titulos-graficos" >Cantidad de buques pesqueros ilegales detectados por país a traves de los años:</h1>
         
         <iframe src='https://flo.uri.sh/visualisation/22666020/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/22666020/?utm_source=embed&utm_campaign=visualisation/22666020' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
         
-        
-        <p style="color: #cce5ff; font-size: 1.2rem;">En particular, la situación de China se ha tornado critica en las ultimas decadas. Esta nación, sufre de un incremento exponencial de buques pesqueros ilegales, afectando no solo a sus aguas, sino que tambien la de otros paises los cuales estos buques explotan.</p>
+        <section class="story-header" style="margin-top:0cm;">
+          <p>En particular, la situación de China se ha tornado critica en los ultimas años. Esta nación, sufre de un incremento exponencial de buques pesqueros ilegales, afectando no solo a sus aguas, sino que tambien la de otros paises los cuales estos buques explotan.</p>
+        </section>
+
       </div>
       
       <div style="margin-top: 3cm;">
-
-        <h1 style="color: white; font-size: 2rem; margin-bottom 1cm;" >Porcentaje de buques ilegales detectados vs capturados:</h1>
-
+        <h1 class="titulos-graficos" >Porcentaje de buques ilegales detectados vs capturados:</h1>
         <iframe src='https://flo.uri.sh/visualisation/22677699/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/22677699/?utm_source=embed&utm_campaign=visualisation/22677699' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
-
-        <p style="color: #cce5ff; font-size: 1.2rem;">Por ultimo, este grafico muestra como evolucionan los porcentajes de buques ilegales detectados y capturados a traves de los ultimos años. Se puede observar como hasta 2018 ambos porcentajes se mantenian muy cercanos, indicando que la mayoria de buques que eran detectados terminaban siendo capturados. Sin embargo, desde este año en adelante el ratio de detección-captura empieza a incrementar drasticamente. Con esta información, se puede concluir que si bien la tecnologia de detección ha evolucionado muchisimo, la captura de dichos buques viene en declive.</p>
+        <section class="story-header">
+          <p>Por ultimo, este grafico muestra como evolucionan los porcentajes de buques ilegales detectados y capturados a traves de los ultimos años. Se puede observar como hasta 2018 ambos porcentajes se mantenian muy cercanos, indicando que la mayoria de buques que eran detectados terminaban siendo capturados. Sin embargo, desde este año en adelante el ratio de detección-captura empieza a incrementar drasticamente. Con esta información, se puede concluir que si bien la tecnologia de detección ha evolucionado muchisimo, la captura de dichos buques viene en declive.</p>
+        </section>
 
       </div>
 
-      <h2 style="color: white; font-size: 2rem; margin-bottom 1cm; margin-top: 1cm;">Conclusión</h2>
-
-      <p style="color: #cce5ff; font-size: 1.2rem;">Con esto, se evidencia con claridad que la pesca ilegal continúa siendo un problema gravemente vigente en la actualidad. Lejos de disminuir, en muchos casos —como el de China— su crecimiento ha sido acelerado y alarmante. Esta actividad no solo representa una amenaza directa a la biodiversidad marina, sino que también pone en riesgo la sostenibilidad de los ecosistemas oceánicos, la seguridad alimentaria global y los medios de vida de comunidades costeras que dependen de la pesca responsable. Es fundamental que como sociedad tomemos conciencia del impacto que esto genera, y que promovamos acciones concretas —desde políticas públicas hasta decisiones de consumo— para frenar su avance y proteger nuestros mares.</p>
-
+      <section class="story-header">
+        <h1 style="color: white;">Conclusión</h1>
+        <p> Con esto, se evidencia con claridad que la pesca ilegal continúa siendo un problema gravemente vigente en la actualidad. Lejos de disminuir, en muchos casos —como el de China— su crecimiento ha sido acelerado y alarmante. Esta actividad no solo representa una amenaza directa a la biodiversidad marina, sino que también pone en riesgo la sostenibilidad de los ecosistemas oceánicos, la seguridad alimentaria global y los medios de vida de comunidades costeras que dependen de la pesca responsable. Es fundamental que como sociedad tomemos conciencia del impacto que esto genera, y que promovamos acciones concretas —desde políticas públicas hasta decisiones de consumo— para frenar su avance y proteger nuestros mares.</p>
+      </section>
+      
     </section>
 
 
@@ -190,7 +182,6 @@
           <span>@PattoPeraltta</span>
         </a>
         <a href="https://www.linkedin.com/in/patricioperaltaramosguerrero/" target="_blank" rel="noopener noreferrer">
-          <!-- LinkedIn Icon -->
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
             <rect width="4" height="12" x="2" y="9"></rect>
@@ -199,7 +190,6 @@
           <span>Patricio Peralta</span>
         </a>
         <a href="https://instagram.com/patoperaltaa_" target="_blank" rel="noopener noreferrer">
-          <!-- Instagram Icon -->
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -221,6 +211,13 @@
 </main>
 
 <style>
+
+  .titulos-graficos{
+    color: white; 
+    font-size: 1.8rem; 
+    text-align: left;
+  }
+
   .footer {
     width: 100%;
     padding: 1.5rem 0;
@@ -264,7 +261,67 @@
     font-size: 0.875rem;
     font-weight: 500;
   }
+
+  .waffle-legend {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem auto 2rem auto;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 0.2rem 0.2rem;
+    backdrop-filter: blur(3px);
+    max-width: 650px;
+  }
+
+  .legend-item {
+    display: flex;
+
+    align-items: center;
+    gap: 0.7rem;
+    color: white;
+    font-size: 1rem;
+  }
+
+  .legend-item img {
+    width: 40px;
+    height: 40px;
+  }
   
+  .waffle-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.waffle-year {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.waffle-label {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.waffle-square {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 1px;
+  width: fit-content;
+}
+
+.waffle-fish {
+  width: 18px;
+  height: 18px;
+}
+
   .copyright {
     margin-top: 1.5rem;
     text-align: center;
@@ -291,79 +348,38 @@
   }
   .story-header {
     margin: 2rem auto;
-    max-width: 800px;
+    text-align: left;
+    margin-bottom: 2cm;
+    margin-top: 2cm ;
+
   }
   .story-header h1 {
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 0.5rem;
   }
   .story-header p {
-    color: #cce5ff;
-    font-size: 1.2rem;
-    margin: 0 auto 2rem;
+    color: #ddd8d8;
+    font-size: 1.5rem;
   }
   .section-title {
     margin-bottom: 1rem;
   }
-  .initial-representation,
-  .isotype-bars,
-  .length-channel,
-  .illegal-fishing-chart,
-  .shark-attacks-chart {
-    border: 4px solid rgba(173, 216, 230, 0.7);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 2rem;
+
+  .visual-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #c3bdbd;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
   }
-  .images-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 4rem;
-    flex-wrap: wrap;
-  }
-  .image-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 300px;
-  }
-  .image-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-  }
-  .shark-image {
-    width: 300px;
-    height: auto;
-  }
-  .fish-image {
-    width: 100px;
-    height: auto;
-  }
-  .magnitude {
-    font-size: 2.5rem;
-    color: rgb(157, 198, 247);
-    margin-top: 1rem;
-  }
-  .iso__container-big {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 650px;
-    margin: 0 auto;
-    gap: 10px;
-    padding-top: 1rem;
-  }
+
   .bar-chart {
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
     margin: 2rem auto;
     max-width: 800px;
-    gap: 1rem;
     min-height: 350px;
   }
   .bar-wrapper {
@@ -373,8 +389,8 @@
     text-align: center;
   }
   .bar-item {
-    background: rgb(9, 53, 114);
-    width: 60px;
+    background: #A69Ae5;
+    width: 50px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -392,20 +408,20 @@
   }
   .bar-wrapper .value-label {
     color: #cce5ff;
-    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
-  .bar-wrapper .caption {
-    color: #cce5ff;
-    font-size: 0.8rem;
-    margin-bottom: 0.3rem;
-  }
+
   :global(body),
   :global(html) {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #1a6ed5, #0c3b7c, #001e4d);
-    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #001e4d, #000000);
+    font-family: 'Din Condensed', sans-serif;
+  }
+  :global(p){
+    font-family: 'Roboto', sans-serif;
+
   }
   :global(.headline) {
     margin: 30px;
