@@ -186,8 +186,6 @@
   </div>
 </main>
 
-<img src="./images/PezFondo.png" alt="Fish background" class="pezfondo">
-
 <style>
 
 ::selection {
@@ -225,35 +223,7 @@
     position: relative;
     z-index: 1;
   }
-  
-  /* Fish with glow effect */
-  .pezfondo {
-    transition: transform 0.3s ease;
-    opacity: .4;
-    position: absolute;
-    left: 25px;
-    bottom: 150px;
-    width: 200px;
-    height: auto;
-    z-index: 0;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 30px rgba(255, 180, 0, 0.6));
-    animation: glow 3s infinite alternate;
-  }
-  
-  .pezfondo:hover {
-    transform: scale(1.05);
-  }
-  @keyframes glow {
-    0% {
-      filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5)) drop-shadow(0 0 25px rgba(255, 180, 0, 0.3));
-    }
-    50% {
-      filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 35px rgba(255, 180, 0, 0.6));
-    }
-    100% {
-      filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5)) drop-shadow(0 0 25px rgba(255, 180, 0, 0.3));
-    }
-  }
+
 
   .titulos-graficos{
     color: white; 
@@ -473,12 +443,6 @@
   
   /* Responsive styles */
   @media (max-width: 768px) {
-    .pezfondo {
-      position: static;
-      display: block;
-      margin: 2rem auto 0;
-      width: 200px;
-    }
     
     .social-links {
       flex-direction: column;
