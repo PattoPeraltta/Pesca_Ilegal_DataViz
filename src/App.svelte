@@ -36,7 +36,7 @@
 <svelte:head>
   <meta property="og:title" content="Pesca Ilegal - Conciencia Marina" />
   <meta property="og:description" content="Una visualización sobre la pesca ilegal en el mundo." />
-  <meta property="og:image" content="https://pescailegal.vercel.app/Fish.jpg" />
+  <meta property="og:image" content="./images/Fish.jpeg" />
   <meta property="og:url" content="https://pescailegal.vercel.app/" />
   <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
