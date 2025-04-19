@@ -54,11 +54,13 @@
     align-items: center;
     gap: 0.5rem;
     color: white;
-    font-size: 1rem;
+    font-size: 1.2rem;
     background: rgba(255, 255, 255, 0.2);
     padding: 0.3rem 0.6rem;
     border-radius: 10px;
     backdrop-filter: blur(3px);
+    border: 1px solid #34748d;
+    background: rgba(65, 155, 159, 0.2);
 }
 
   .legend img {
@@ -87,9 +89,5 @@
   .images-container {
     display: flex;
     flex-wrap: wrap;
-  }
-
-  .section-title {
-    margin-bottom: 1cm;
   }
 </style>

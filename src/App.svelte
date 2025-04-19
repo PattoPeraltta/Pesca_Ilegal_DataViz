@@ -1,51 +1,47 @@
 <script context="module">
-  export const prerender = true;
-</script>
-
-<svelte:head>
-  <meta property="og:title" content="Pesca Ilegal - Conciencia Marina" />
-  <meta property="og:description" content="Una visualización sobre la pesca ilegal en el mundo." />
-  <meta property="og:image" content="https://pescailegal.vercel.app/og-image.jpg" />
-  <meta property="og:url" content="https://pescailegal.vercel.app/" />
-  <meta name="twitter:card" content="summary_large_image" />
-</svelte:head>
-
-
-<script>
+  // Imports
+  export const prerender = true; // Importante para metadata
   import * as d3 from "d3";
   import IsotypeBars from "./lib/IsotypeBars.svelte";
 
+  // Variables
   let años = [2015,2016,2017,2018,2019, 2020, 2021, 2022,2023, 2024]
   let serieA = [24, 33, 43, 54, 63, 71, 77, 87, 92, 98];
   let serieB = [23, 35, 45, 56, 50, 43, 38, 32, 28, 25];
+
+  // Transformaciones
   let altura = d3.scaleLinear().domain([5, 100]).range([15, 225]);
   let transformedValues = serieA.map(n => Math.round((n - 20) / 10) * 10);
   let presupuestoMaritimo = serieA.map(n => Math.floor(95 - n / 2.2));
 
-  // AGREGar tipografias piola
-  // titulo piola con gpt maybe
-  // media pila pato
-
-  // se ordena el vector en forma ascendente para formar los años
+  // Se ordena el vector en forma ascendente para hallar max/min
   let sortedNumbers = [...serieA].sort((a, b) => a - b);
   let fishMin = Math.min(...sortedNumbers);
   let fishMax = Math.max(...sortedNumbers);
 
-  // defino funcion para conseguir int random
+  // Funcion para conseguir un entero aleatorio
   const getRandomInt = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
   
-  // defino escala para grafico de barras de pescaderia ilegal
-  // se acotan los valores con min/max , y con getRandomInt se generan valores
-  // con range se ponen la minima y maxima altura en pixeles
-
+  // Defino escala para grafico de barras
   let illegalFishScale = d3.scaleLinear()
     .domain([fishMin - 1, fishMax + 1]) 
     .range([10, 300]); 
 </script>
+
+<!-- Metadata-->
+<svelte:head>
+  <meta property="og:title" content="Pesca Ilegal - Conciencia Marina" />
+  <meta property="og:description" content="Una visualización sobre la pesca ilegal en el mundo." />
+  <meta property="og:image" content="https://pescailegal.vercel.app/Fish.jpg" />
+  <meta property="og:url" content="https://pescailegal.vercel.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+</svelte:head>
+
+
 
 <main class="container">
   <div class="background-container">
@@ -59,7 +55,6 @@
       </p>
     </header>
 
-    <!-- Segunda representación: Escuela de Peces -->
     <h2 class="titulos-graficos">Millones de peces pescados ilegalmente en los ultimos 10 años: </h2>
     <section class="isotype-bars visual-box">
       <IsotypeBars numbers={serieA} años={años}/>
@@ -107,8 +102,6 @@
         </div>
       </div>
     </section>
-
-    <!-- CUARTA REPRESENTACIÓN: Gráfico de Barras – Millones de Peces Pescados Ilegalmente -->
     <section style="margin-bottom: 1cm; ">
       <header class="story-header" style="margin-bottom: 2cm;">
         <h1 class="section-title">Control Gubernamental</h1>
@@ -193,7 +186,7 @@
         </a>
       </div>
       <div class="copyright">
-        <p>© {new Date().getFullYear()} La Odisea Marina. All rights reserved.</p>
+        <p>© 2025 La Odisea Marina. All rights reserved.</p>
       </div>
     </footer>
   </div>
@@ -202,8 +195,8 @@
 <style>
 
 ::selection {
-  color: rgb(255, 255, 255);/* text color when selected*/
-  background: #619fce; /* optional: background color*/
+  color: rgb(255, 255, 255);
+  background: #619fce; 
   font-family: 'Din Condensed', sans-serif;
 }
 
@@ -273,8 +266,8 @@
   }
   
   .social-links a:hover {
-    background-color: rgba(12, 74, 110, 0.6);
-    color: white;
+    background-color: white;
+    color: black;
     transform: translateY(-2px);
   }
   
@@ -307,7 +300,7 @@
     align-items: center;
     gap: 0.7rem;
     color: #f9f9f9;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .legend-item img {
@@ -454,9 +447,7 @@
     font-size: 1.5rem;
   }
   
-  /* Responsive styles */
   @media (max-width: 768px) {
-    
     .social-links {
       flex-direction: column;
       gap: 1rem;
