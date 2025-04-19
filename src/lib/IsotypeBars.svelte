@@ -66,7 +66,6 @@
   }
   .legend span {
     font-family: 'Roboto', sans-serif;
-    margin-top: 0.3cm;
   }
 
   .row {

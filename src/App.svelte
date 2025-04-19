@@ -1,3 +1,4 @@
+
 <script>
   import * as d3 from "d3";
   import IsotypeBars from "./lib/IsotypeBars.svelte";
