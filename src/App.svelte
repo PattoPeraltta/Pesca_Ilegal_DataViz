@@ -36,7 +36,7 @@
 
 <main class="container">
   <div class="background-container">
-    <header class="story-header">
+    <header class="story-header-first">
       <h1>La pesca ilegal: Un problema en crecimiento</h1>
       <p>
         La pesca ilegal, no declarada y no reglamentada (INDNR) representa una amenaza creciente para los ecosistemas marinos. Cada año, millones de toneladas de peces son extraídas sin control, lo que deteriora la biodiversidad, debilita la seguridad alimentaria y perjudica gravemente a las comunidades costeras que dependen del mar para subsistir.
@@ -48,13 +48,11 @@
 
     <!-- Segunda representación: Escuela de Peces -->
     <h2 class="titulos-graficos">Millones de peces pescados ilegalmente en los ultimos 10 años: </h2>
-    <section class="isotype-bars visual-box" style="margin-bottom: 2cm;">
+    <section class="isotype-bars visual-box">
       <IsotypeBars numbers={serieA} años={años}/>
     </section>
 
-    <header class="story-header" style="margin-top: 0cm;">
-      <p> La grafica representa el crecimiento de la cantidad de peces pescados de manera ilicita, donde cada pescado representa un incremento en 7 millones de peces. </p>
-    </header>
+      <p class="epigrafe"> La grafica representa el crecimiento de la cantidad de peces pescados de manera ilicita, donde cada pescado representa un incremento en 7 millones de peces. </p>
 
     <section style="margin-bottom: 2cm;">
       <header class="story-header">
@@ -79,20 +77,20 @@
           </div>
         </div>
         <div class="waffle-grid ">
-          {#each transformedValues as value, index}
+        {#each transformedValues as value, index}
             <div class="waffle-year">
               <p class="waffle-label">{años[index]}</p>
-              <div class="waffle-square">
-                {#each Array(100) as _, i}
-                  <img
-                    class="waffle-fish"
-                    src={i < value ? "./images/Fish2.svg" : "./images/Fish.svg"}
-                    alt="Conciencia"
-                  />
-                {/each}
-              </div>
+                <div class="waffle-square">
+                  {#each Array(100) as _, i}
+                    <img
+                      class="waffle-fish"
+                      src={i < value ? "./images/Fish2.svg" : "./images/Fish.svg"}
+                      alt="Conciencia"
+                    />
+                  {/each}
+                </div>
             </div>
-          {/each}
+        {/each}
         </div>
       </div>
     </section>
@@ -138,17 +136,15 @@
         
         <iframe src='https://flo.uri.sh/visualisation/22666020/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/22666020/?utm_source=embed&utm_campaign=visualisation/22666020' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
         
-        <section class="story-header" style="margin-top:0cm;">
-          <p>En particular, la situación de China se ha tornado critica en los ultimas años. Esta nación, sufre de un incremento exponencial de buques pesqueros ilegales, afectando no solo a sus aguas, sino que tambien la de otros paises los cuales estos buques explotan.</p>
-        </section>
+        
+          <p class="epigrafe">En particular, la situación de China se ha tornado critica en los ultimas años. Esta nación, sufre de un incremento exponencial de buques pesqueros ilegales, afectando no solo a sus aguas, sino que tambien la de otros paises los cuales estos buques explotan.</p>
+  
       </div>
       
       <div style="margin-top: 3cm;">
         <h1 class="titulos-graficos">Porcentaje de buques ilegales detectados vs capturados:</h1>
         <iframe src='https://flo.uri.sh/visualisation/22677699/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/22677699/?utm_source=embed&utm_campaign=visualisation/22677699' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
-        <section class="story-header">
-          <p>Por ultimo, este grafico muestra como evolucionan los porcentajes de buques ilegales detectados y capturados a traves de los ultimos años. Se puede observar como hasta 2018 ambos porcentajes se mantenian muy cercanos, indicando que la mayoria de buques que eran detectados terminaban siendo capturados. Sin embargo, desde este año en adelante el ratio de detección-captura empieza a incrementar drasticamente. Con esta información, se puede concluir que si bien la tecnologia de detección ha evolucionado muchisimo, la captura de dichos buques viene en declive.</p>
-        </section>
+          <p class = "epigrafe">Por ultimo, este grafico muestra como evolucionan los porcentajes de buques ilegales detectados y capturados a traves de los ultimos años. Se puede observar como hasta 2018 ambos porcentajes se mantenian muy cercanos, indicando que la mayoria de buques que eran detectados terminaban siendo capturados. Sin embargo, desde este año en adelante el ratio de detección-captura empieza a incrementar drasticamente. Con esta información, se puede concluir que si bien la tecnologia de detección ha evolucionado muchisimo, la captura de dichos buques viene en declive.</p>
       </div>
 
       <section class="story-header">
@@ -193,6 +189,36 @@
 <img src="./images/PezFondo.png" alt="Fish background" class="pezfondo">
 
 <style>
+
+::selection {
+  color: rgb(255, 255, 255);/* text color when selected*/
+  background: #619fce; /* optional: background color*/
+  font-family: 'Din Condensed', sans-serif;
+}
+
+.story-header-first {
+    margin: 2rem auto;
+    text-align: left;
+  }
+  
+  .story-header-first h1 {
+    color: #ffffff;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .story-header-first p {
+    color: #ddd8d8;
+    font-size: 1.5rem;
+  }
+
+  .epigrafe{
+    text-align: left;
+    color: #ddd8d8;
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+
   .container {
     padding: 1rem;
     text-align: center;
@@ -202,17 +228,21 @@
   
   /* Fish with glow effect */
   .pezfondo {
-    opacity: .7;
+    transition: transform 0.3s ease;
+    opacity: .4;
     position: absolute;
     left: 25px;
     bottom: 150px;
-    width: 400px;
+    width: 200px;
     height: auto;
     z-index: 0;
     filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 30px rgba(255, 180, 0, 0.6));
     animation: glow 3s infinite alternate;
   }
   
+  .pezfondo:hover {
+    transform: scale(1.05);
+  }
   @keyframes glow {
     0% {
       filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5)) drop-shadow(0 0 25px rgba(255, 180, 0, 0.3));
@@ -251,11 +281,11 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: #cce5ff;
+    color: #ffffff;
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 9999px;
-    background-color: rgba(12, 74, 110, 0.4);
+    background-color: rgba(147, 147, 147, 0.4);
     transition: all 0.2s ease;
   }
   
@@ -281,18 +311,19 @@
     justify-content: center;
     gap: 2rem;
     margin: 1rem auto 2rem auto;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(65, 155, 159, 0.2);
     border-radius: 10px;
     padding: 0.2rem 0.2rem;
     backdrop-filter: blur(3px);
     max-width: 650px;
+    border: 1px solid #34748d;
   }
 
   .legend-item {
     display: flex;
     align-items: center;
     gap: 0.7rem;
-    color: white;
+    color: #f9f9f9;
     font-size: 1rem;
   }
 
@@ -337,7 +368,7 @@
   .copyright {
     margin-top: 1.5rem;
     text-align: center;
-    color: rgba(204, 229, 255, 0.7);
+    color: rgba(125, 126, 128, 0.7);
     font-size: 0.75rem;
   }
   
@@ -376,7 +407,7 @@
     border: 1px solid #c3bdbd;
     padding: 1.5rem;
     margin-top: 1.5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom:.5cm;
   }
 
   .bar-chart {
