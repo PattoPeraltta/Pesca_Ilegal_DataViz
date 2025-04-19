@@ -1,8 +1,15 @@
-<meta property="og:title" content="Pesca Ilegal" />
-<meta property="og:description" content="Entrega prototipo primer parcial Visualización de Datos" />
-<meta property="og:image" content="https://yourdomain.com/public/Fish.svg" />
-<meta property="og:url" content="https://yourdomain.com" />
-<meta name="twitter:card" content="summary_large_image" />
+<script context="module">
+  export const prerender = true;
+</script>
+
+<svelte:head>
+  <meta property="og:title" content="Pesca Ilegal - Conciencia Marina" />
+  <meta property="og:description" content="Una visualización sobre la pesca ilegal en el mundo." />
+  <meta property="og:image" content="https://pescailegal.vercel.app/og-image.jpg" />
+  <meta property="og:url" content="https://pescailegal.vercel.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+</svelte:head>
+
 
 <script>
   import * as d3 from "d3";
