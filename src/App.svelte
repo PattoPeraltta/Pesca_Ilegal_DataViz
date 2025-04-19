@@ -1,3 +1,8 @@
+<meta property="og:title" content="Pesca Ilegal" />
+<meta property="og:description" content="Entrega prototipo primer parcial Visualización de Datos" />
+<meta property="og:image" content="https://yourdomain.com/public/Fish.svg" />
+<meta property="og:url" content="https://yourdomain.com" />
+<meta name="twitter:card" content="summary_large_image" />
 
 <script>
   import * as d3 from "d3";
