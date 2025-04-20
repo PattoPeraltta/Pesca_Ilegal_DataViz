@@ -21,7 +21,7 @@
         <div class="images-container">
           {#each Array(count) as _, i}
             <img
-              style="height: 50px; padding: 0.5px"
+              class="pez"
               src="./images/Fish.svg"
               alt="Pez"
             />
@@ -33,6 +33,10 @@
 </div>
 
 <style>
+  .pez{
+    height: 50px; 
+    padding: 0.5px;
+  }
   .isotype-bars-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -63,31 +67,73 @@
     background: rgba(65, 155, 159, 0.2);
 }
 
-  .legend img {
-    height: 50px;
-  }
-  .legend span {
-    font-family: 'Roboto', sans-serif;
-  }
+.legend img {
+  height: 50px;
+}
+.legend span {
+  font-family: 'Roboto', sans-serif;
+}
 
-  .row {
+.row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.number {
+  color: white;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.images-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .legend {
+    top: -4.5rem; 
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    background: rgba(65, 155, 159, 0.2);
+    padding: 0.3rem 0.6rem;
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+    border: 1px solid #34748d;
+    z-index: 10;
+    width: 250px;
+  }
+
+  .legend img {
+    height: 30px;
+  }
+
+  .legend span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+  }
+
+  .pez {
+    height: 18px;
+    padding: 0px;
+  }
+
+  .iso__container-iso {
+    gap: 0rem; 
   }
 
   .number {
-    color: white;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 9px;
-    width: 50px;
+    font-size: 1rem; 
   }
+}
 
-  .images-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
 </style>
