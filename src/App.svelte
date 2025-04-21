@@ -9,17 +9,16 @@
 
 <script>
   // Datos
+  let serieA = [24, 33, 43, 54, 63, 71, 77, 87, 92, 98];
   let anios = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024];
-  let seriePeces = [24, 33, 43, 54, 63, 71, 77, 87, 92, 98];
-  let serieSecundaria = [23, 35, 45, 56, 50, 43, 38, 32, 28, 25];
 
   // Transformaciones y escalas
   let escalaAltura = d3.scaleLinear().domain([5, 100]).range([15, 225]);
-  let valoresTransformados = seriePeces.map(n => Math.round((n - 20) / 10) * 10);
-  let presupuestoMaritimo = seriePeces.map(n => Math.floor(95 - n / 2.2));
+  let valoresTransformados = serieA.map(n => Math.round((n - 20) / 10) * 10);
+  let presupuestoMaritimo = serieA.map(n => Math.floor(95 - n / 2.2));
 
   // Se ordena el vector en forma ascendente para hallar máximo/mínimo
-  let numerosOrdenados = [...seriePeces].sort((a, b) => a - b);
+  let numerosOrdenados = [...serieA].sort((a, b) => a - b);
   let pecesMinimo = Math.min(...numerosOrdenados);
   let pecesMaximo = Math.max(...numerosOrdenados);
 
@@ -65,10 +64,10 @@
       Millones de peces pescados ilegalmente en los últimos 10 años:
     </h2>
     <section class="caja-visual grafico-isotipos">
-      <IsotypeBars numbers={seriePeces} años={anios}/>
+      <IsotypeBars numbers={serieA} años={anios}/>
     </section>
     <p class="epigrafe">
-      La gráfica representa el crecimiento de la cantidad de peces pescados de manera ilícita, donde cada pescado representa un incremento en 7 millones de peces.
+      La gráfica representa el crecimiento de la cantidad de peces pescados de manera ilícita, donde cada pescado representa un incremento en 10 millones de peces.
     </p>
 
     <!-- Sección de conciencia ambiental -->

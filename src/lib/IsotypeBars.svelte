@@ -1,27 +1,29 @@
 <script>
+  // Props
   export let numbers = [];
   export let años = [];
   
-  // Cada pezcado en la escuela, representa un incremento en 6 en el numero de magnitud redondeado al multiplo de 6 mas cercano
-  let fishCount = numbers.map(n => Math.round(n / 7));
+  // Transformación de datos:
+  // Cada pez en la visualización representa un incremento de 7 millones de peces
+  let contadorPeces = numbers.map(n => Math.round(n / 10));
 </script>
 
-<div class="isotype-bars-container">
-
-  
-  <div class="iso__container-iso">
-    <div class="legend">
+<div class="contenedorBarrasIsotipo">
+  <div class="contenedorIsotipos">
+    <!-- Leyenda -->
+    <div class="leyenda">
       <img src="./images/Fish.svg" alt="Pez" />
-      <span>= 7 millones de peces</span>
+      <span>= 10 millones de peces</span>
     </div>
 
-    {#each fishCount as count, index}
-      <div class="row">
-        <p class="number">{años[index]}</p>
-        <div class="images-container">
-          {#each Array(count) as _, i}
+    <!-- Filas de peces -->
+    {#each contadorPeces as cantidad, indice}
+      <div class="fila">
+        <p class="etiquetaAno">{años[indice]}</p>
+        <div class="contenedorImagenes">
+          {#each Array(cantidad) as _, i}
             <img
-              class="pez"
+              class="imagenPez"
               src="./images/Fish.svg"
               alt="Pez"
             />
@@ -33,24 +35,47 @@
 </div>
 
 <style>
-  .pez{
-    height: 50px; 
-    padding: 0.5px;
-  }
-  .isotype-bars-container {
+  /* Contenedores principales */
+  .contenedorBarrasIsotipo {
     max-width: 1000px;
     margin: 0 auto;
     margin-top: 2cm;
   }
 
-  .iso__container-iso {
+  .contenedorIsotipos {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     position: relative; 
   }
 
-  .legend {
+  /* Elementos de visualización */
+  .imagenPez {
+    height: 50px; 
+    padding: 0.5px;
+  }
+
+  .fila {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .etiquetaAno {
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .contenedorImagenes {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /* Leyenda */
+  .leyenda {
     position: absolute;
     top: 0.5rem;
     right: 0;
@@ -59,81 +84,61 @@
     gap: 0.5rem;
     color: white;
     font-size: 1.2rem;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.3rem 0.6rem;
-    border-radius: 10px;
-    backdrop-filter: blur(3px);
-    border: 1px solid #34748d;
-    background: rgba(65, 155, 159, 0.2);
-}
-
-.legend img {
-  height: 50px;
-}
-.legend span {
-  font-family: 'Roboto', sans-serif;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.number {
-  color: white;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.images-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 768px) {
-  .legend {
-    top: -4.5rem; 
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1rem;
     background: rgba(65, 155, 159, 0.2);
     padding: 0.3rem 0.6rem;
     border-radius: 10px;
     backdrop-filter: blur(3px);
     border: 1px solid #34748d;
-    z-index: 10;
-    width: 250px;
   }
 
-  .legend img {
-    height: 30px;
+  .leyenda img {
+    height: 50px;
   }
 
-  .legend span {
+  .leyenda span {
     font-family: 'Roboto', sans-serif;
-    font-size: 0.9rem;
   }
 
-  .pez {
-    height: 18px;
-    padding: 0px;
-  }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .leyenda {
+      top: -4.5rem; 
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 10px;
+      backdrop-filter: blur(3px);
+      border: 1px solid #34748d;
+      z-index: 10;
+      width: 250px;
+    }
 
-  .iso__container-iso {
-    gap: 0rem; 
-  }
+    .leyenda img {
+      height: 30px;
+    }
 
-  .number {
-    font-size: 1rem; 
-  }
-}
+    .leyenda span {
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.9rem;
+    }
 
+    .imagenPez {
+      height: 18px;
+      padding: 0px;
+    }
+
+    .contenedorIsotipos {
+      gap: 0rem; 
+    }
+
+    .etiquetaAno {
+      font-size: 1rem; 
+    }
+  }
 </style>
