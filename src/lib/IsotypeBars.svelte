@@ -84,11 +84,10 @@
     gap: 0.5rem;
     color: white;
     font-size: 1.2rem;
-    background: rgba(65, 155, 159, 0.2);
     padding: 0.3rem 0.6rem;
     border-radius: 10px;
-    backdrop-filter: blur(3px);
-    border: 1px solid #34748d;
+    background: rgb(68, 68, 68);
+    border: 1px solid #A69CE5;
   }
 
   .leyenda img {
@@ -109,13 +108,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
       font-size: 1rem;
-      padding: 0.3rem 0.6rem;
-      border-radius: 10px;
-      backdrop-filter: blur(3px);
-      border: 1px solid #34748d;
-      z-index: 10;
       width: 250px;
     }
 

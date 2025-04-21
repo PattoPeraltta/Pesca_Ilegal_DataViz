@@ -49,7 +49,7 @@
     <!-- Sección de introducción -->
     <header class="encabezado-principal">
       <h1>
-        La pesca ilegal: Un problema en crecimiento
+        La pesca ilegal: <span class="acentos">Un problema en crecimiento</span>
       </h1>
       <p>
         La pesca ilegal, no declarada y no reglamentada (INDNR) representa una amenaza creciente para los ecosistemas marinos. Cada año, millones de toneladas de peces son extraídas sin control, lo que deteriora la biodiversidad, debilita la seguridad alimentaria y perjudica gravemente a las comunidades costeras que dependen del mar para subsistir.
@@ -73,7 +73,7 @@
     <!-- Sección de conciencia ambiental -->
     <section class="seccion-contenido">
       <header class="encabezado-seccion">
-        <h1>Conciencia ambiental en comunidades costeras</h1>
+        <h1><span class="acentos">Conciencia ambiental</span> en comunidades costeras</h1>
         <p>
           Durante la última década, los niveles de conciencia ambiental acerca de la pesca ilegal en las comunidades costeras han crecido notablemente. Sin embargo, a pesar de este progreso, todavía queda un largo camino por recorrer para lograr una comprensión profunda y generalizada sobre la importancia de proteger nuestros océanos.
         </p>
@@ -118,7 +118,7 @@
     <section class="seccion-contenido">
       <header class="encabezado-seccion">
         <h1 class="titulo-seccion">
-          Control Gubernamental
+          <span class="acentos">Control</span> Gubernamental
         </h1>
         <p class="texto-seccion">
           La lucha contra la pesca ilegal no puede depender únicamente de la conciencia ciudadana o de iniciativas aisladas. Es fundamental que los gobiernos destinen recursos concretos al control marítimo y fiscalización. Sin inversión pública sostenida, los esfuerzos por proteger nuestros océanos quedan a la deriva.
@@ -127,7 +127,7 @@
     </section>
 
     <h2 class="titulo-grafico">
-      Porcentaje del Presupuesto Ambiental (global) destinado al Control Marítimo:
+      % del Presupuesto Ambiental (global) destinado al Control Marítimo:
     </h2>
 
     <section class="caja-visual">
@@ -145,7 +145,7 @@
     <!-- Sección de buques pesqueros -->
     <section class="encabezado-seccion">
       <h1>
-        Buques Pesqueros Ilegales en Crecimiento
+        Buques Pesqueros <span class="acentos">Ilegales </span>en Crecimiento
       </h1>
       <p>
         A medida que la pesca ilegal se expande, también lo hace la cantidad de buques no registrados que operan fuera del marco legal. Muchas de estas embarcaciones apagan sus sistemas de rastreo y violan zonas protegidas sin dejar rastro.
@@ -203,7 +203,7 @@
             <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
             <path d="M9 18c-4.51 2-5-2-7-2"></path>
           </svg>
-          <span>@PattoPeraltta</span>
+          <span style="font-family: 'Inria sans', sans-serif;">@PattoPeraltta</span>
         </a>
         <a href="https://www.linkedin.com/in/patricioperaltaramosguerrero/" target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -211,7 +211,7 @@
             <rect width="4" height="12" x="2" y="9"></rect>
             <circle cx="4" cy="4" r="2"></circle>
           </svg>
-          <span>Patricio Peralta</span>
+          <span style="font-family: 'Inria sans', sans-serif;">Patricio Peralta</span>
         </a>
         <a href="https://instagram.com/patoperaltaa_" target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -219,7 +219,7 @@
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
             <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
           </svg>
-          <span>@patoperaltaa_</span>
+          <span style="font-family: 'Inria sans', sans-serif;">@patoperaltaa_</span>
         </a>
       </div>
       <div class="copyright">
@@ -233,8 +233,7 @@
   /* Selección de texto */
   ::selection {
     color: rgb(255, 255, 255);
-    background: #619fce; 
-    font-family: 'Din Condensed', sans-serif;
+    background: #A69Ae5; 
   }
 
   /* Contenedores principales */
@@ -260,6 +259,10 @@
     text-align: left;
   }
 
+  .acentos{
+    color: #A69CE5;
+  }
+
   .encabezado-principal h1,
   .encabezado-seccion h1 {
     color: #ffffff;
@@ -274,9 +277,11 @@
   }
 
   .titulo-grafico {
-    color: white; 
-    font-size: 1.8rem; 
-    text-align: left;
+    color: rgb(255, 255, 255); 
+    font-size: 1.5rem; 
+    opacity: .7;
+    text-align: center;
+    margin-bottom: 0.4cm;
   }
 
   .titulo-conclusion {
@@ -304,7 +309,6 @@
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid #c3bdbd;
     padding: 1.5rem;
-    margin-top: 1.5rem;
     margin-bottom: 0.5rem;
   }
 
@@ -357,12 +361,12 @@
     justify-content: center;
     gap: 2rem;
     margin: 1rem auto 2rem auto;
-    background: rgba(65, 155, 159, 0.2);
     border-radius: 10px;
-    padding: 0.2rem 0.2rem;
+    padding: 0.8rem 0.8rem;
     backdrop-filter: blur(3px);
     max-width: 650px;
-    border: 1px solid #34748d;
+    background: rgb(68, 68, 68);
+    border: 1px solid #A69CE5;
   }
 
   .item-leyenda {
@@ -479,13 +483,13 @@
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #001e4d, #000000);
-    font-family: 'Din Condensed', sans-serif;
+    background: linear-gradient(to bottom, #000000, #000000);
+    font-family: 'Bungee-regular', sans-serif;
     position: relative;
   }
   
   :global(p) {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inria sans', sans-serif;
   }
   
   :global(.headline) {
@@ -556,5 +560,41 @@
   .anio-waffle {
     margin-bottom: 0.5rem;
   }
+
+  .encabezado-principal,
+  .encabezado-seccion {
+    text-align: left;
+  }
+
+  .encabezado-principal h1,
+  .encabezado-seccion h1 {
+    font-size: 2rem;
+  }
+
+  .encabezado-principal p,
+  .encabezado-seccion p {
+    font-size: 1.4rem;
+  }
+
+  .titulo-grafico {
+    font-size: 1.2rem; 
+  }
+
+  .titulo-conclusion {
+    font-size: 1.4rem;
+  }
+
+  .epigrafe {
+    font-size: 1.4rem;
+  }
+
+  .etiqueta-anio {
+    font-size: .6rem;
+  }
+  
+  .etiqueta-valor {
+    font-size:.7rem;
+  }
+
   }
 </style>
