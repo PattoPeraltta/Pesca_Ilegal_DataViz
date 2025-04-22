@@ -484,7 +484,7 @@
     padding: 0;
     min-height: 100vh;
     background: linear-gradient(to bottom, #000000, #000000);
-    font-family: 'Bungee-regular', sans-serif;
+    font-family: 'Bungee-regular', sans-serif, "DIN condensed", sans-serif;
     position: relative;
   }
   
