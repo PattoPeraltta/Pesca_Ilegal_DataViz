@@ -229,6 +229,8 @@
   </div>
 </main>
 
+
+
 <style>
   /* Selección de texto */
   ::selection {
@@ -484,12 +486,12 @@
     padding: 0;
     min-height: 100vh;
     background: linear-gradient(to bottom, #000000, #000000);
-    font-family: 'Bungee-regular', sans-serif, "DIN condensed", sans-serif;
+    font-family: 'Bungee', cursive, sans-serif;
     position: relative;
   }
   
   :global(p) {
-    font-family: 'Inria sans', sans-serif;
+    font-family: 'Inria Sans', sans-serif;
   }
   
   :global(.headline) {
