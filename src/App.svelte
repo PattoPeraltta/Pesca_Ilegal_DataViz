@@ -10,6 +10,7 @@
 <script>
   // Datos
   let serieA = [24, 33, 43, 54, 63, 71, 77, 87, 92, 98];
+  let serieB = [23, 35, 45, 56, 50, 43, 38, 32, 28, 25];
   let anios = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024];
 
   // Transformaciones y escalas
@@ -31,8 +32,8 @@
   
   // Escala para gráfico de barras
   let escalaPescaIlegal = d3.scaleLinear()
-    .domain([pecesMinimo - 1, pecesMaximo + 1]) 
-    .range([10, 300]); 
+  .domain([pecesMinimo - 1, pecesMaximo + 1]) 
+  .range([10, 300]); 
 </script>
 
 <!-- Metadata -->
@@ -64,7 +65,7 @@
       Millones de peces pescados ilegalmente en los últimos 10 años:
     </h2>
     <section class="caja-visual grafico-isotipos">
-      <IsotypeBars numbers={serieA} años={anios}/>
+      <IsotypeBars numbers={serieA} serieB={serieB} años={anios}/>
     </section>
     <p class="epigrafe">
       La gráfica representa el crecimiento de la cantidad de peces pescados de manera ilícita, donde cada pescado representa un incremento en 10 millones de peces.
@@ -108,6 +109,7 @@
                   />
                 {/each}
               </div>
+              <p class="porcentaje-waffle">{valor}% de conciencia</p>
             </div>
           {/each}
         </div>
@@ -141,7 +143,7 @@
         {/each}
       </div>
     </section>
-      
+    
     <!-- Sección de buques pesqueros -->
     <section class="encabezado-seccion">
       <h1>
@@ -171,7 +173,7 @@
       
       <div class="grafico-externo">
         <h1 class="titulo-grafico">
-          Porcentaje de buques ilegales detectados vs capturados:
+          Millones de peces pescados legalmente vs ilegalmente:
         </h1>
         <iframe src='https://flo.uri.sh/visualisation/22677699/embed' title='Interactive or visual content' class='iframe-flourish' frameborder='0' scrolling='no' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
         <div class='credito-flourish'>
@@ -180,7 +182,7 @@
           </a>
         </div>
         <p class="epigrafe">
-          Por último, este gráfico muestra cómo evolucionan los porcentajes de buques ilegales detectados y capturados a través de los últimos años. Se puede observar cómo hasta 2018 ambos porcentajes se mantenían muy cercanos, indicando que la mayoría de buques que eran detectados terminaban siendo capturados. Sin embargo, desde este año en adelante el ratio de detección-captura empieza a incrementar drásticamente. Con esta información, se puede concluir que si bien la tecnología de detección ha evolucionado muchísimo, la captura de dichos buques viene en declive.
+          Por último, este gráfico da otra forma de visualizar la crisis de pesca ilegal. En el, se puede ver de manera más clara el punto de inflexión en 2018, donde la pesca legal comienza a decrecer lentamente, mientras que la ilegal empieza a crecer rapidamente.
         </p>
       </div>
 
@@ -404,6 +406,16 @@
     font-weight: bold;
   }
 
+  .porcentaje-waffle {
+    color: rgb(227, 224, 224);
+    margin-top: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+  }
+
   .cuadrado-waffle {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -557,6 +569,12 @@
   .etiqueta-waffle {
     font-size: 0.9rem;
     margin-bottom: 0.3rem;
+  }
+
+  .porcentaje-waffle {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.4rem;
+    
   }
 
   .anio-waffle {
